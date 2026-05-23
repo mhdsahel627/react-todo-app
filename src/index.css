@@ -1,74 +1,210 @@
-body{
-    background : linear-gradient(90deg,rgb(0, 0, 5),rgb(24, 84, 144));
-    font-family: Arial, sans-serif;
-}
-
-.to-do-list {
-    text-align: center;
-    margin-top: 100px;
-}
-h1 {
-    color: white;
-    font-size: 4rem;
-}
-button{
-    font-size: 1.7rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-}
-
-.add-btn {
-    background-color: hsl(125, 47%, 54%);
-}
-.add-btn:hover{
-    background-color: hsl(125, 47%, 44%);
-}
-.dlt-btn {
-    background-color: hsl(10, 90%, 50%);
-}
-.dlt-btn:hover{
-    background-color: hsl(10, 90%, 40%);
-}
-.move-btn{
-    background-color: hsl(207, 90%, 64%);
-}
-.move-btn:hover{
-    background-color: hsl(207, 90%, 54%);
-}
-input[type = 'text']{
-    font-size: 1.6rem;
-    padding: 10px;
-    border : 2px solid hsl(0, 0%, 80%);
-    border-radius: 5px;
-    color: hsla(0, 0%, 0%, 0.5);
-}
-ol{
+/* Universal Reset & High-Quality Font family */
+* {
+    box-sizing: border-box;
+    margin: 0;
     padding: 0;
 }
-li{
-    font-size: 2rem;
-    font-weight: bold;
-    background-color: white;
-    margin-bottom: 10px;
-    border: 3px solid hsla(0,0%,85%,0.75);
-    border-radius: 5px;
+
+body {
+    background: linear-gradient(135deg, rgb(0, 0, 5), rgb(24, 84, 144));
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
+}
+
+/* Premium Wrapper Grid */
+.to-do-container {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+/* Glassmorphism Card Design */
+.to-do-list {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Bold & Sharp Heading */
+h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: left;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+/* Input Row Grouping */
+.input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+input[type='text'] {
+    flex: 1;
+    font-size: 1.1rem;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input[type='text']::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Input Focus Glow */
+input[type='text']:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+}
+
+/* Core Buttons Base Styling */
+button {
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/* Add Button Premium Look */
+.add-btn {
+    background: #0ea5e9;
+    color: #ffffff;
+    padding: 0 24px;
+}
+
+.add-btn:hover {
+    background: #0284c7;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.35);
+}
+
+/* Organized Task Item List */
+ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px 18px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    transition: all 0.25s ease;
+    animation: slideUp 0.3s ease-out;
 }
-.text{
+
+li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Text Visibility and Reading Adjustments */
+.text {
     flex: 1;
-
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 0%;
+    font-size: 1.15rem; /* ബിഗ്ഗർ റീഡബിൾ ഫോണ്ട് */
+    font-weight: 500;
+    color: #f8fafc;
+    text-align: left;
+    word-break: break-all;
+    line-height: 1.4;
 }
 
-.dlt-btn, .move-btn{
-    padding: 8px 12px;
-    font-size:  1.4rem;
-    margin-left: 10px;
+/* Checkbox Adjustment */
+.check {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    accent-color: #38bdf8;
+    flex-shrink: 0;
+}
+
+/* List Control Buttons Group */
+.btn-group {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.move-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+}
+
+.move-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.dlt-btn {
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+}
+
+.dlt-btn:hover {
+    background: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Completed Task Fade State */
+.completed-row {
+    opacity: 0.55;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.completed-row .text {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+/* Clean Micro-Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
